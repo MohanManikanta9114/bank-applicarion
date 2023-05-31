@@ -1,6 +1,6 @@
 package com.cisco.model;
 
-public class SavingsAccount extends Account {
+public class SavingsAccount extends Account implements Printable {
 
 	private double interestRate;
 	
@@ -17,22 +17,26 @@ public class SavingsAccount extends Account {
 		System.out.println("Interest :"+ interest);
 		deposit( interest );
 		
-		
 	}
-	
 	@Override
 	public void withdraw (double amount) {
-		//TODO Auto-generated stub 
-		if ( amount <= 0 ) {
+		if (amount <= 0) {
 			System.out.println("Amount to be withdrawn should be positive");
 		}
-		else if(!isSufficientBalance(amount)) {
-			System.out.println("insufficient balance");
+		else if (!isSufficientBalance(amount)) {
+			System.out.println("insufficent balance");
 		}else {
-			this.balance -=amount;
+			balance -= amount;
 			System.out.println("Amount withdrawn successfully");
 		}
+		
+		
 	}
-	
-	
+	@Override
+	public void printBalance() {
+		// TODO Auto-generated method stub
+		System.out.printf("Savings Account Balance : $%.2f%n", getBalance());
+
+		
+	}
 }

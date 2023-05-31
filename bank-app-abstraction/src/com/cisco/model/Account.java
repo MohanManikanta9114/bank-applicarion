@@ -1,6 +1,6 @@
 package com.cisco.model;
 
-public class Account {
+public abstract class Account {
 	
 	protected double balance=0.0;	
 	
@@ -28,26 +28,10 @@ public class Account {
 		return this.balance;
 	}
 	
-	public void withdraw(double amount) {
-		if ( this.balance>=amount) {
-			
-		}
-		else if( !isSufficientBalance(amount)){
-			System.err.println("Insufficient balance");
-		}
-		else {
-			this.balance-=amount ;
-			System.out.println("Amount withdrawn successfully");
-		}
-	}
+	// Make this withdraw as abstract method
+	public abstract void withdraw(double amount) ;
 	
 	public void setBalance(double balance) {
 		this.balance=balance;
 	}
-
-	
-
-	
-	
-	
 }
